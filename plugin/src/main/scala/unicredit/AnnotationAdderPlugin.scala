@@ -73,7 +73,6 @@ class AnnotationAdderPlugin(val global: Global) extends Plugin {
         }
         clazz match {
           case Success(classSym) =>
-            println("Adding transformer!")
             Seq(new AdderTransformer(unit, c._1, classSym, c._2))
           case Failure(e) =>
             println(s"class '${c._1}' does not exist")
@@ -87,7 +86,7 @@ class AnnotationAdderPlugin(val global: Global) extends Plugin {
         while(iter.hasNext && !iter.next.check(tree)) {
           count += 1
         }
-         println(tree.getClass + " -> "+ tree)
+         //println(tree.getClass + " -> "+ tree)
         
         if (count == adders.size)
           super.transform(tree)
@@ -106,10 +105,10 @@ class AnnotationAdderPlugin(val global: Global) extends Plugin {
       def check(tree: Tree): Boolean = {
         tree match {
           case cd @ ClassDef(Modifiers(flags, privateWithin, annotations), name, tparams, impl)
-            /*if (classSym == cd.symbol)*/ =>
+            if (classSym == cd.symbol) =>
             //annotations.foreach(a =>
               
-              println("RAW:\n"+showRaw(cd)+"\n")
+            //  println("RAW:\n"+showRaw(cd)+"\n")
             //)
             unit.warning(tree.pos, s"CLASS $className FOUND!!!\n annotations $annotations")
             
@@ -119,7 +118,7 @@ class AnnotationAdderPlugin(val global: Global) extends Plugin {
             println("RAW:\n"+showRaw(any)+"\n")
             false*/
           case any =>
-            println(any.getClass)
+            //println(any.getClass)
             false
         }
       }

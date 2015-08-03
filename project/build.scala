@@ -5,7 +5,7 @@ object build extends Build {
   lazy val root = Project(
     id = "root",
     base = file("."),
-    aggregate = Seq(plugin, macro,  main)
+    aggregate = Seq(plugin, main)
   )
 
   lazy val sharedSettings = Seq(
@@ -44,8 +44,7 @@ object build extends Build {
       "com.typesafe.play" %% "play-json" % "2.4.0"     
     ),
     addCompilerPlugin("org.scalamacros" % "paradise" % "2.0.1" cross CrossVersion.full)
-  ) settings (sharedSettings: _*// ++ usePluginSettings: _*)
-  )
+  ) settings (sharedSettings ++ usePluginSettings: _*)
 
 
 }
