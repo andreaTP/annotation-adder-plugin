@@ -1,6 +1,10 @@
 import sbt._
 import Keys._
 
+import org.scalajs.sbtplugin.ScalaJSPlugin
+import ScalaJSPlugin._
+import ScalaJSPlugin.autoImport._
+
 object build extends Build {
   lazy val root = Project(
     id = "root",
@@ -34,15 +38,12 @@ object build extends Build {
   )
 
 
+
   // A regular module with the application code.
   lazy val main = Project(
     id   = "main",
     base = file("main")
-  ) settings (
-    libraryDependencies ++= Seq(
-      "com.kifi" %% "json-annotation" % "0.2",
-      "com.typesafe.play" %% "play-json" % "2.4.0"     
-    ),
+  ) enablePlugins(ScalaJSPlugin) settings (
     addCompilerPlugin("org.scalamacros" % "paradise" % "2.0.1" cross CrossVersion.full)
   ) settings (sharedSettings ++ usePluginSettings: _*)
 
