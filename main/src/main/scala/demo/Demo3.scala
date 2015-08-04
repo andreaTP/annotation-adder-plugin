@@ -9,6 +9,7 @@ import js.annotation.JSExport
 
 @JSExport case class Foo2(i: Int, s: String)
 case class Foo3(i: Int, s: String)
+case class Foo4(i: Int, s: String)
 
 object Demo2 extends JSApp {
 

@@ -16,6 +16,10 @@
 	alert("foo2 is hardcoded "+foo2)
 	var foo3 = new demo.unicredit.Foo3(3, "foofoofoo")
 	alert("foo3 is generated "+foo3)
+	try {
+		var foo4 = new demo.unicredit.Foo4(3, "foofoofoofoo")
+	} catch (err) {}
+	alert("foo4 is unreachable "+foo4)
 </script>
 
 </body>
