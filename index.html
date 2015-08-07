@@ -12,14 +12,26 @@
 
 <script type="text/javascript" src="./main/target/scala-2.11/annotationadder-fastopt.js"></script>
 <script>
+/*
 	var foo2 = new demo.unicredit.Foo2(2, "foofoo")
 	alert("foo2 is hardcoded "+foo2)
+	alert("foo2 field "+foo2.fooField)
 	var foo3 = new demo.unicredit.Foo3(3, "foofoofoo")
 	alert("foo3 is generated "+foo3)
 	try {
 		var foo4 = new demo.unicredit.Foo4(3, "foofoofoofoo")
 	} catch (err) {}
 	alert("foo4 is unreachable "+foo4)
+	alert("foo2 method "+foo2.fooDef())
+*/
+
+
+	var foo6 = new demo.unicredit.Foo6(6, "f")
+	alert("foo6 is generated "+foo6)
+
+	var foo5 = new demo.unicredit.Foo5(5, "f")
+	alert("foo5 is generated "+foo5)
+	
 </script>
 
 </body>
